@@ -3,3 +3,7 @@
 .column, .drawer {
   flex: 1 1 auto;
 }
+
+.getting-started {
+  background: image-url('mastodon-getting-started.png') no-repeat 0 100% local;
+}
