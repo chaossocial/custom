@@ -1,6 +1,8 @@
 @import 'application';
 
-.column, .drawer {
-  flex: 1 1 auto;
-  max-width: 400px;
+@media screen and (min-width: 1025px) {
+  .column, .drawer {
+    flex: 1 1 auto;
+    max-width: 400px;
+  }
 }
