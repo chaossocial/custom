@@ -7,6 +7,10 @@
   }
 }
 
-.getting-started {
-  background: url('../images/mastodon-fairydust.svg') no-repeat 0 100%/contain local;
+.drawer__inner {
+  background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
+}
+
+.drawer__inner > .mastodon {
+  background: #282c37 url('../images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
 }
