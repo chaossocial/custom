@@ -1,0 +1,28 @@
+@import 'application';
+
+@media screen and (min-width: 1025px) {
+  .column, .drawer {
+    flex: 1 1 auto;
+    min-width: 300px;
+    max-width: none;
+  }
+}
+
+.drawer__inner {
+  background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
+}
+
+.drawer__inner__mastodon {
+  background: url('../images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
+}
+
+.landing-page__call-to-action {
+    background:  #1f232b url('../images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
+}
+
+.drawer__inner__mastodon img, .landing-page__mascot img {
+  display: none;
+}
+.status-link.mention {
+  color: #49a0de;
+}
