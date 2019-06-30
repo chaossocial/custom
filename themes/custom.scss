@@ -6,6 +6,10 @@
     min-width: 300px;
     max-width: 580px;
   }
+
+  .ui.is-composing .column, .ui.is-composing .drawer {
+    max-width: 400px;
+  }
 }
 
 .drawer__inner {
