@@ -1,15 +1,18 @@
+@import 'mastodon-light/variables';
 @import 'application';
+@import 'mastodon-light/diff';
 
 @media screen and (min-width: 1025px) {
-  .column, .drawer {
+  .layout-multiple-columns .column,
+  .layout-multiple-columns .drawer {
     flex: 1 1 auto;
     min-width: 300px;
-    max-width: none;
+    max-width: 400px;
   }
 }
 
 .drawer__inner {
-  background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
+  background: #fff url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
 }
 
 .drawer__inner__mastodon {
@@ -17,12 +20,9 @@
 }
 
 .landing-page__call-to-action {
-    background:  #1f232b url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
+    background:  #fff url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
 }
 
 .drawer__inner__mastodon img, .landing-page__mascot img {
   display: none;
-}
-.status__content a {
-  color: #49a0de;
 }
