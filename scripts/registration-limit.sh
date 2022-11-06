@@ -16,13 +16,6 @@ mastodon_psql () {
 	echo "$(/usr/bin/psql -U "${DB_USER}" -w -h "${DB_HOST}" -p "${DB_PORT}" -t "${DB_NAME}" -c "$1")"
 }
 
-redis_replace () {
-	REDISKEY="$(redis-cli --raw keys cache:rails_settings_cached/*/min_invite_role)"
-	CACHED="$(redis-cli get "$REDISKEY")"
-	NEW="${CACHED/"$1"/"$2"}"
-	redis-cli set "$REDISKEY" "$NEW"
-}
-
 INVITE_ROLE="$(mastodon_psql "SELECT value FROM settings WHERE var LIKE 'min_invite_role';")"
 USERS_TODAY="$(mastodon_psql "SELECT count(*) FROM users WHERE users.created_at::date = NOW()::date AND disabled=false;")"
 echo "$USERS_TODAY"
@@ -32,11 +25,13 @@ if [ "$USERS_TODAY" -lt "$MAX_USERS" ] && [[ "$INVITE_ROLE" == *"admin"* ]]; the
 	echo "opening registrations and restoring invites"
 	mastodon_psql "UPDATE invites SET expires_at=TO_TIMESTAMP(comment, 'YYYY-MM-DD HH24:MI:SS.US'), comment='' WHERE expires_at='1999-09-09 00:00:00';"
 	mastodon_psql "UPDATE settings SET value = REPLACE(value, 'admin', 'user'), updated_at=NOW() WHERE var = 'min_invite_role';"
-	redis_replace "admin" "user"
+	REDISKEY="$(redis-cli --raw keys cache:rails_settings_cached/*/min_invite_role)"
+	redis-cli del "$REDISKEY"
 elif [ "$USERS_TODAY" -gt $MAX_USERS ] && [[ "$INVITE_ROLE" == *"user"* ]] ; then
 	# Too many sign-ups but still in user mode
 	echo "closing registrations and disabling invites"
 	mastodon_psql "UPDATE invites SET comment=expires_at, expires_at='1999-09-09 00:00:00' WHERE (max_uses IS NULL OR uses < max_uses) AND (expires_at IS NULL OR expires_at > now());"
 	mastodon_psql "UPDATE settings SET value = REPLACE(value, 'user', 'admin'), updated_at=NOW() WHERE var = 'min_invite_role';"
-	redis_replace "user" "admin"
+	REDISKEY="$(redis-cli --raw keys cache:rails_settings_cached/*/min_invite_role)"
+	redis-cli del "$REDISKEY"
 fi
