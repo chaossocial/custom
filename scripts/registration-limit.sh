@@ -10,6 +10,7 @@ if [ ! -e "${CONFIG}" ]; then
 	grep -e ^"DB_" -e ^"LOCAL_DOMAIN" "${HOME}/live/.env.production" > "${CONFIG}"
 fi
 . "${CONFIG}"
+export PGPASSWORD="$DB_PASS"
 
 mastodon_psql () {
 	echo "$(/usr/bin/psql -U "${DB_USER}" -w -h "${DB_HOST}" -p "${DB_PORT}" -t "${DB_NAME}" -c "$1")"
