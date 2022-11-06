@@ -7,12 +7,15 @@ min_invite_role=$(/usr/bin/psql mastodon -t -c "select value from settings where
 today=$(/usr/bin/psql mastodon -t -c "select count(*) from users where users.created_at::date = NOW()::date;")
 echo "$today"
 
-# TODO in both branches, use a method to get the correct redis key
+# TODO make /usr/bin/psql use remote access, either directly or by maybe using `rake exec dbshell`
+
+# TODO fix the redis-cli lines so that the special characters don't get escaped
+# (To see what's happening, compare "get test:rixx" with "get cache:rails_settings_cached/8cf69c0340d0506f5783bd343106ebea/min_invite_role")
+
+# TODO (not urgent) in both branches, use a method to get the correct redis key
 # redis-cli -h localhost -p 6379 keys cache:rails_settings_cached/*/min_invite_role
 # output: 1) "cache:rails_settings_cached/8cf69c0340d0506f5783bd343106ebea/min_invite_role"
 # we need to cut out only the "1)"
-
-# TODO make /usr/bin/psql use remote access, either directly or by maybe using `rake exec dbshell`
 
 if [ "$today" -lt "$MAX_USERS" ] && [[ "$min_invite_role" == *"admin"* ]]; then
 	# Few sign-ups but admin mode, date rollover
