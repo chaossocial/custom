@@ -27,7 +27,7 @@ if [ "$USERS_TODAY" -lt "$MAX_USERS" ] && [[ "$INVITE_ROLE" == *"admin"* ]]; the
 	mastodon_psql "UPDATE settings SET value = REPLACE(value, 'admin', 'user'), updated_at=NOW() WHERE var = 'min_invite_role';"
 	REDISKEY="$(redis-cli --raw keys cache:rails_settings_cached/*/min_invite_role)"
 	redis-cli del "$REDISKEY"
-elif [ "$USERS_TODAY" -gt $MAX_USERS ] && [[ "$INVITE_ROLE" == *"user"* ]] ; then
+elif [ "$USERS_TODAY" -ge $MAX_USERS ] && [[ "$INVITE_ROLE" == *"user"* ]] ; then
 	# Too many sign-ups but still in user mode
 	echo "closing registrations and disabling invites"
 	mastodon_psql "UPDATE invites SET comment=expires_at, expires_at='1999-09-09 00:00:00' WHERE (max_uses IS NULL OR uses < max_uses) AND (expires_at IS NULL OR expires_at > now());"
