@@ -17,7 +17,7 @@ mastodon_psql () {
 }
 
 INVITE_ROLE="$(mastodon_psql "SELECT value FROM settings WHERE var LIKE 'min_invite_role';")"
-USERS_TODAY="$(mastodon_psql "SELECT count(*) FROM users WHERE users.created_at::date = NOW()::date AND disabled=false;")"
+USERS_TODAY="$(mastodon_psql "SELECT count(*) FROM users WHERE TIMEZONE('UTC', users.created_at)::date = NOW()::date AND disabled=false;")"
 echo "$USERS_TODAY"
 
 if [ "$USERS_TODAY" -lt "$MAX_USERS" ] && [[ "$INVITE_ROLE" == *"admin"* ]]; then
