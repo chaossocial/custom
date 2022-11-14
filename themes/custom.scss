@@ -15,6 +15,6 @@
 .drawer__inner__mastodon img, .landing-page__mascot img {
   display: none;
 }
-.status__content a {
+.status__content a, .status__content a.unhandled-link {
   color: #6bc1ff;
 }
