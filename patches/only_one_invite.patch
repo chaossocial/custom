@@ -1,0 +1,13 @@
+diff --git a/app/views/invites/_form.html.haml b/app/views/invites/_form.html.haml
+index 3a2a5ef0e..89895dfd6 100644
+--- a/app/views/invites/_form.html.haml
++++ b/app/views/invites/_form.html.haml
+@@ -3,7 +3,7 @@
+
+   .fields-row
+     .fields-row__column.fields-row__column-6.fields-group
+-      = f.input :max_uses, wrapper: :with_label, collection: [1, 5, 10, 25, 50, 100], label_method: lambda { |num| I18n.t('invites.max_uses', count: num) }, prompt: I18n.t('invites.max_uses_prompt')
++      = f.input :max_uses, wrapper: :with_label, collection: [1], include_blank: false, label_method: lambda { |num| I18n.t('invites.max_uses', count: num) }
+     .fields-row__column.fields-row__column-6.fields-group
+       = f.input :expires_in, wrapper: :with_label, collection: [30.minutes, 1.hour, 6.hours, 12.hours, 1.day, 1.week].map(&:to_i), label_method: lambda { |i| I18n.t("invites.expires_in.#{i}") }, prompt: I18n.t('invites.expires_in_prompt')
+
