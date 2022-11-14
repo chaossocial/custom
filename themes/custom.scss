@@ -1,14 +1,5 @@
 @import 'application';
 
-@media screen and (min-width: 1025px) {
-  .layout-multiple-columns .column,
-  .layout-multiple-columns .drawer {
-    flex: 1 1 auto;
-    min-width: 300px;
-    max-width: 400px;
-  }
-}
-
 .drawer__inner {
   background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
 }
