@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-MAX_USERS=42
+MAX_USERS=23
 RAILS_ENV=production
 
 # Config grabbing yoinked from https://codeberg.org/Windfluechter/check_mastodon.sh/src/branch/main/check_mastodon.sh
