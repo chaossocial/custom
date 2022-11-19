@@ -113,6 +113,10 @@ $font-monospace: 'mastodon-font-monospace' !default;
 .status__content a, .status__content a.unhandled-link, .column-header__back-button {
   color: #6bc1ff;
 }
-.status__content {
+.reply-indicator__content p, .status__content p {
   line-height: 20px;
+}
+
+.reply-indicator__content p, .status__content p {
+ margin-bottom: 16px;
 }
