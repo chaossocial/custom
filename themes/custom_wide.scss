@@ -3,6 +3,7 @@
 @media screen and (min-width: 1200px) {
   .column, .drawer {
     flex: 1 1 auto;
+    max-width: none;
   }
   .drawer {
     min-width: 300px;
