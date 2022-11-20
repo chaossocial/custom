@@ -110,3 +110,7 @@ $font-monospace: 'mastodon-font-monospace' !default;
 .server-banner__meta__column .account .account__display-name {
   gap: 6px;
 }
+
+.navigation-panel__logo {
+  display: none;
+}
