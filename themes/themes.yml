@@ -2,4 +2,3 @@ default: styles/custom.scss
 contrast: styles/contrast.scss
 mastodon-light: styles/mastodon-light.scss
 chaos-social-wide: styles/custom_wide.scss
-old-but-fresh: styles/old-but-fresh.scss
