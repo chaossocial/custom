@@ -1,4 +1,4 @@
-@import 'application';
+@import 'custom';
 
 @media screen and (min-width: 1200px) {
   .column, .drawer {
@@ -11,23 +11,4 @@
   .column {
     min-width: 350px;
   }
-}
-
-.drawer__inner {
-  background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
-}
-
-.drawer__inner__mastodon {
-  background: url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
-}
-
-.landing-page__call-to-action {
-    background:  #1f232b url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
-}
-
-.drawer__inner__mastodon img, .landing-page__mascot img {
-  display: none;
-}
-.status__content a, .status__content a.unhandled-link {
-  color: #6bc1ff;
 }

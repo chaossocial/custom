@@ -85,6 +85,7 @@ $font-monospace: 'mastodon-font-monospace' !default;
 @import 'mastodon/rtl';
 @import 'mastodon/accessibility';
 
+@import 'mascot';
 
 @media screen and (min-width: 1025px) {
   .layout-multiple-columns .column,
@@ -95,21 +96,6 @@ $font-monospace: 'mastodon-font-monospace' !default;
   }
 }
 
-.drawer__inner {
-  background: #444b5d url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
-}
-
-.drawer__inner__mastodon {
-  background: url('../../assets/images/mastodon-trans.svg') no-repeat 0 100%/contain;
-}
-
-.landing-page__call-to-action {
-    background:  #1f232b url('../../assets/images/mastodon-trans.svg') no-repeat 0 100%/contain;
-}
-
-.drawer__inner__mastodon img, .landing-page__mascot img {
-  display: none;
-}
 .status__content a, .status__content a.unhandled-link, .column-header__back-button {
   color: #6bc1ff;
 }
