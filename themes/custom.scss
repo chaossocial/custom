@@ -114,3 +114,8 @@ $font-monospace: 'mastodon-font-monospace' !default;
 .navigation-panel__logo {
   display: none;
 }
+
+// Hide the empty "rules" and "moderated servers" sections, see https://github.com/mastodon/mastodon/issues/21318
+.about__section:nth-of-type(4), .about__section:nth-of-type(5) {
+  display: none;
+}
