@@ -1,7 +1,7 @@
 @import 'custom';
 
 @media screen and (min-width: 1200px) {
-  .layout-multiple-columns .column, .layout-multiple-colum .drawer {
+  .layout-multiple-columns .column, .layout-multiple-colums .drawer {
     flex: 1 1 auto;
     max-width: none;
   }
