@@ -13,10 +13,10 @@ fi
 CUSTOM=~mastodon/custom
 LIVE=~mastodon/live
 
-if [[ $* == *-d* ]]; then
-    DRYRUN=1
+if [[ $* == *-f* ]]; then
+    FORCE=1
 else
-    DRYRUN=0
+    FORCE=0
 fi
 
 
@@ -25,8 +25,12 @@ install () {
     dst=$LIVE/$2
     diffresult=$(diff "$src" "$dst")
     if [ "$diffresult" -eq 1 ]; then
-        echo "Files differ! $src vs $dst"
-        if [ $DRYRUN -eq 0 ]; then
+        if [ $FORCE -eq 0 ]; then
+            echo "Files differ! $src vs $dst"
+            echo "Look at diff $src $dst"
+            echo "Run with -f to copy files."
+        else
+            echo "Copying: cp $src $dst"
             cp "$src" "$dst"
         fi
     fi
