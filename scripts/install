@@ -1,0 +1,39 @@
+#!/bin/bash
+# Assumes that the script is located in ~mastodon/custom and the app in ~mastodon/live
+# Execute as mastodon user
+# Run with -d to just print differences
+
+set -e
+
+if [ "$(whoami)" != 'mastodon' ]; then
+    echo "Please execute as mastodon user"
+    exit 1
+fi
+
+CUSTOM=~mastodon/custom
+LIVE=~mastodon/live
+
+if [[ $* == *-d* ]]; then
+    DRYRUN=1
+else
+    DRYRUN=0
+fi
+
+
+install () {
+    src=$CUSTOM/$1
+    dst=$LIVE/$2
+    diffresult=$(diff "$src" "$dst")
+    if [ "$diffresult" -eq 1 ]; then
+        echo "Files differ! $src vs $dst"
+        if [ $DRYRUN -eq 0 ]; then
+            cp "$src" "$dst"
+        fi
+    fi
+}
+
+install favicon/chaos-social-favicon.ico public/favicon.ico
+install themes/custom.scss app/javascript/styles/custom.scss
+install themes/custom_wide.scss app/javascript/styles/custom_wide.scss
+install themes/mastodon-light.scss app/javascript/styles/mastodon-light.scss
+install themes/themes.yml config/themes.yml
