@@ -24,8 +24,8 @@ install () {
     src=$CUSTOM/$1
     dst=$LIVE/$2
     diffresult=$(diff "$src" "$dst")
-    if [ "$diffresult" -eq 1 ]; then
-        if [ $FORCE -eq 0 ]; then
+    if [[ "$diffresult" -eq 1 ]]; then
+        if [[ $FORCE -eq 0 ]]; then
             echo "Files differ! $src vs $dst"
             echo "Look at diff $src $dst"
             echo "Run with -f to copy files."
