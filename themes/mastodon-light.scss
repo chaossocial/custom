@@ -2,21 +2,16 @@
 @import 'application';
 @import 'mastodon-light/diff';
 
-.drawer__inner {
-  background: #fff url('../images/wave-drawer.svg') no-repeat bottom/100% auto;
-}
+@import 'mascot';
 
-.drawer__inner__mastodon {
-  background: url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
+.drawer__inner {
+  background-color: #fff;
 }
 
 .landing-page__call-to-action {
-    background:  #fff url('../../assets/images/mastodon-fairydust.svg') no-repeat 0 100%/contain;
+    background-color:  #fff;
 }
 
-.drawer__inner__mastodon img, .landing-page__mascot img {
-  display: none;
-}
 .status__content a, .status__content a.unhandled-link {
   color: #005c8a;
 }

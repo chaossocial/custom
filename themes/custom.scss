@@ -107,10 +107,17 @@ $font-monospace: 'mastodon-font-monospace' !default;
  margin-bottom: 16px;
 }
 
+// Fixes the display of the admin account as "@ordnu…" to users that are not logged in
 .server-banner__meta__column .account .account__display-name {
   gap: 6px;
 }
 
+// Hides the mastodon logo that is shown to users that are not logged in
 .navigation-panel__logo {
+  display: none;
+}
+
+// Hide the empty "rules" and "moderated servers" sections, see https://github.com/mastodon/mastodon/issues/21318
+.about__section:nth-of-type(4), .about__section:nth-of-type(5) {
   display: none;
 }
