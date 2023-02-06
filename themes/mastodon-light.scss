@@ -15,3 +15,17 @@
 .status__content a, .status__content a.unhandled-link {
   color: #005c8a;
 }
+
+// add a red bottom border on images without alt text
+.audio-player__canvas:not([title]),
+.audio-player__canvas[title=""],
+.media-gallery__gifv video:not([title]),
+.media-gallery__gifv video[title=""],
+.media-gallery__item-thumbnail img:not([alt]),
+.media-gallery__item-thumbnail img[alt=""],
+.video-player video:not([title]),
+.video-player video[title=""] {
+    border-bottom: 4px solid #ff4253;
+    box-sizing: border-box;
+}
+
