@@ -16,6 +16,13 @@ $classic-primary-color: #9baec8;      // Echo Blue
 $classic-secondary-color: #d9e1e8;    // Pattens Blue
 $classic-highlight-color: #1c89d1;    // Chaotic Blue
 
+// fixes for 4.2.0
+$ui-button-background-color: $classic-highlight-color;
+$ui-button-focus-background-color: darken($classic-highlight-color, 4%) !default;
+//remove these stupid follow buttons in the notifications
+.notification-follow .account__relationship { display: none;}
+// end fixes
+
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
 $base-overlay-background: $black !default;
