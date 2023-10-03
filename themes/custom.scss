@@ -16,11 +16,9 @@ $classic-primary-color: #9baec8;      // Echo Blue
 $classic-secondary-color: #d9e1e8;    // Pattens Blue
 $classic-highlight-color: #1c89d1;    // Chaotic Blue
 
-// fixes for 4.2.0
+// fixes for 4.2.0 part 1 
 $ui-button-background-color: $classic-highlight-color;
 $ui-button-focus-background-color: darken($classic-highlight-color, 4%) !default;
-//remove these stupid follow buttons in the notifications
-.notification-follow .account__relationship { display: none;}
 // end fixes
 
 // Variables for defaults in UI
@@ -68,9 +66,11 @@ $font-sans-serif: 'mastodon-font-sans-serif' !default;
 $font-display: 'mastodon-font-display' !default;
 $font-monospace: 'mastodon-font-monospace' !default;
 
-
+@import 'mastodon/mixins';
+@import 'mastodon/variables';
 @import 'fonts/roboto';
 @import 'fonts/roboto-mono';
+
 @import 'mastodon/reset';
 @import 'mastodon/basics';
 @import 'mastodon/branding';
@@ -91,6 +91,7 @@ $font-monospace: 'mastodon-font-monospace' !default;
 @import 'mastodon/dashboard';
 @import 'mastodon/rtl';
 @import 'mastodon/accessibility';
+@import 'mastodon/rich_text';
 
 @import 'mascot';
 
@@ -142,3 +143,36 @@ $font-monospace: 'mastodon-font-monospace' !default;
         box-sizing: border-box;
 }
 
+
+// fixes mastodon 4.2.0 part 2
+//remove these stupid follow buttons in the notifications
+.notification-follow .account__relationship { display: none;}
+// fix to big url preview
+.status-card {
+    border-radius: 4px;
+    &__actions {
+        & > div {
+            border-radius: 4px;
+        }
+    }
+}
+.status-card__title {
+    font-size: 16px;
+    line-height: 18px;
+}
+.status-card__content {
+    padding: 8px 12px;
+}
+.status-card__image {
+    flex: 0 0 76px;
+}
+.status-card__image,
+.status-card__image-image,
+.status-card__image-preview {
+    border-start-start-radius: 4px;
+}
+.status-card.expanded .status-card__image,
+.status-card.expanded .status-card__image-image,
+.status-card.expanded .status-card__image-preview {
+    border-start-end-radius: 4px;
+}
