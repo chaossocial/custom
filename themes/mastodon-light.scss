@@ -12,7 +12,9 @@
     background-color:  #fff;
 }
 
-.status__content a, .status__content a.unhandled-link {
+.status__content a,
+.status__content a.unhandled-link,
+.hashtag-bar a {
   color: #005c8a;
 }
 

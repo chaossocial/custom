@@ -104,7 +104,10 @@ $font-monospace: 'mastodon-font-monospace' !default;
   }
 }
 
-.status__content a, .status__content a.unhandled-link, .column-header__back-button {
+.status__content a,
+.status__content a.unhandled-link,
+.hashtag-bar a,
+.column-header__back-button {
   color: #6bc1ff;
 }
 .reply-indicator__content p, .status__content p {
