@@ -79,8 +79,6 @@ $font-monospace: 'mastodon-font-monospace' !default;
 @import 'mastodon/widgets';
 @import 'mastodon/forms';
 @import 'mastodon/accounts';
-@import 'mastodon/statuses';
-@import 'mastodon/boost';
 @import 'mastodon/components';
 @import 'mastodon/polls';
 @import 'mastodon/modal';
@@ -104,36 +102,31 @@ $font-monospace: 'mastodon-font-monospace' !default;
   }
 }
 
+/* more contrast an right color for links in toots */
 .status__content a,
 .status__content a.unhandled-link,
 .hashtag-bar a,
 .column-header__back-button {
   color: #6bc1ff;
 }
+
 .reply-indicator__content p, .status__content p {
   line-height: 21px;
+  margin-bottom: 16px;
 }
 
-.reply-indicator__content p, .status__content p {
- margin-bottom: 16px;
-}
-
-// Fixes the display of the admin account as "@ordnu…" to users that are not logged in
 .server-banner__meta__column .account .account__display-name {
   gap: 6px;
 }
 
-// Hides the mastodon logo that is shown to users that are not logged in
 .navigation-panel__logo {
   display: none;
 }
 
-// Hide the empty "rules" and "moderated servers" sections, see https://github.com/mastodon/mastodon/issues/21318
 .about__section:nth-of-type(4), .about__section:nth-of-type(5) {
   display: none;
 }
 
-// add a red bottom border on images without alt text
 .audio-player__canvas:not([title]),
 .audio-player__canvas[title=""],
 .media-gallery__gifv video:not([title]),
@@ -146,11 +139,8 @@ $font-monospace: 'mastodon-font-monospace' !default;
         box-sizing: border-box;
 }
 
+/* make link preview status card smaller*/
 
-// fixes mastodon 4.2.0 part 2
-//remove these stupid follow buttons in the notifications
-.notification-follow .account__relationship { display: none;}
-// fix to big url preview
 .status-card {
     border-radius: 4px;
     &__actions {
@@ -178,4 +168,107 @@ $font-monospace: 'mastodon-font-monospace' !default;
 .status-card.expanded .status-card__image-image,
 .status-card.expanded .status-card__image-preview {
     border-start-end-radius: 4px;
+}
+
+/*Fix background colors of elements*/
+.column > .scrollable {
+	background: #282c37;
+}
+
+.column .column-header {
+	background: #282c37;
+}
+
+.column .notification__filter-bar {
+	background: #282c37;
+}
+
+.column-subheading {
+    background-color: #393F4F;
+}
+
+.drawer__header{
+   background-color: #393F4F;
+}
+
+.drawer__inner{
+   background-color: #393F4F;
+}
+
+.search__input {
+    background: #282c37;
+}
+
+/* Make Getting started footer more readable*/
+.link-footer p {
+    color:#9baec8;
+}
+
+.link-footer p a {
+    color:#9baec8;
+}
+
+/* Make borders slightly more visible than our default colors */
+:root {
+    --background-border-color: #393f4f;
+}
+
+
+/*Change color and add more contrast to icon buttons*/
+.icon-button {
+    color: #9baec8;
+}
+
+.icon-button:hover, .icon-button:focus {
+    color: #d7dfe9
+}
+
+/* Don't show follow button in notifications */
+.notification-group__actions > .button {
+    display: none;
+}
+
+/* Remove warning bars from content warnings */
+.content-warning {
+    border-width: 0px 5px 0px 5px;
+    border-radius: 4px;
+    border-color: #9baec8;
+    border-style: solid
+}
+.content-warning:after,
+.content-warning:before {
+    content: unset;
+}
+
+/* Make filters and content warnings distinguishable*/
+.content-warning--filter {
+    border-color: #ff4253;
+}
+
+/* Fix compose form */
+.compose-form .icon-button {
+    color: #9baec8;
+}
+
+.compose-form .dropdown-button {
+    color: #9baec8;
+}
+
+.compose-form .spoiler-input__border{
+    display: none;
+}
+
+.compose-form .spoiler-input .autosuggest-input{
+    border-width: 0px 5px 0px 5px;
+    border-color: #9baec8;
+    border-style: solid
+}
+
+.compose-form .autosuggest-textarea__textarea, .compose-form .spoiler-input__input {
+    color:#ebeff4;
+}
+
+ /* fix header for simple view */
+#tabs-bar__portal {
+    background: #282c37;
 }
