@@ -272,3 +272,49 @@ $font-monospace: 'mastodon-font-monospace' !default;
 #tabs-bar__portal {
     background: #282c37;
 }
+
+/* new fixes */
+
+.dropdown-button {
+    border: 1px solid #9baec8;
+}
+
+content-warning:after,
+.content-warning:before {
+  content: unset;
+}
+
+.content-warning {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+  p {
+    margin-bottom: 0;
+  }
+  button span {
+    color: #9baec8;
+    visibility: hidden;
+    width: 50px;
+    height: 20px;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    &:before {
+      content: "▸ CN:";
+      display: block;
+      visibility: visible;
+    }
+  }
+}
+
+.content-warning--filter {  
+  button span {
+    width: 65px;
+    &:before {
+      content: "▸ Filter:";
+      display: block;
+      visibility: visible;
+    }
+  }
+}
