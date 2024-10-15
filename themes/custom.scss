@@ -285,36 +285,84 @@ content-warning:after,
 }
 
 .content-warning {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
-  p {
-    margin-bottom: 0;
-  }
-  button span {
-    color: #9baec8;
-    visibility: hidden;
-    width: 50px;
-    height: 20px;
-    display: block;
-    overflow: hidden;
-    text-align: left;
-    &:before {
-      content: "▸ CN:";
-      display: block;
-      visibility: visible;
+    p {
+        margin-top: 1.5em;
     }
-  }
+    button.link-button:hover {
+        text-decoration: none;
+    }
+    button.link-button {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        span {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            text-indent: 13px;
+            color: #9baec8;
+            visibility: hidden;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+	    text-align: left;
+            &:before {
+                content: "Show post with CN:";
+                display: block;
+                visibility: visible;
+            }
+        }
+    }
 }
 
-.content-warning--filter {  
-  button span {
-    width: 65px;
-    &:before {
-      content: "▸ Filter:";
-      display: block;
-      visibility: visible;
+.content-warning--filter {
+    button.link-button span {
+        &:before {
+            content: "Show filtered post:";
+            display: block;
+            visibility: visible;
+        }
     }
-  }
+}
+
+.content-warning:has(+ .status__content, notification-group__embedded-status__content) {
+    button.link-button span {
+        &:before {
+            content: "Hide post with CN:";
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+.content-warning:has(+ .notification-group__embedded-status__content) {
+    button.link-button span {
+        &:before {
+            content: "Hide post with CN:";
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+.content-warning--filter:has(+ .status__content, notification-group__embedded-status__content) {
+    button.link-button span {
+        &:before {
+            content: "Hide filtered post:";
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+.content-warning--filter:has(+ .notification-group__embedded-status__content) {
+    button.link-button span {
+        &:before {
+            content: "Hide filtered post:";
+            display: block;
+            visibility: visible;
+        }
+    }
 }
