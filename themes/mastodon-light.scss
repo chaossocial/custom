@@ -1,8 +1,8 @@
-@import 'mastodon-light/variables';
-@import 'application';
-@import 'mastodon-light/diff';
+@use 'mastodon-light/variables';
+@use 'application';
+@use 'mastodon-light/diff';
 
-@import 'mascot';
+@use 'mascot';
 
 .drawer__inner {
   background-color: #fff;

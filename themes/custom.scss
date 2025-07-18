@@ -1,4 +1,4 @@
-@import 'mastodon/mixins';
+@use 'mastodon/mixins';
 
 // Commonly used web colors
 $black: #000000;            // Black
@@ -66,32 +66,32 @@ $font-sans-serif: 'mastodon-font-sans-serif' !default;
 $font-display: 'mastodon-font-display' !default;
 $font-monospace: 'mastodon-font-monospace' !default;
 
-@import 'mastodon/mixins';
-@import 'mastodon/variables';
-@import 'fonts/roboto';
-@import 'fonts/roboto-mono';
+@use 'mastodon/mixins';
+@use 'mastodon/variables';
+@use 'fonts/roboto';
+@use 'fonts/roboto-mono';
 
-@import 'mastodon/reset';
-@import 'mastodon/basics';
-@import 'mastodon/branding';
-@import 'mastodon/containers';
-@import 'mastodon/lists';
-@import 'mastodon/widgets';
-@import 'mastodon/forms';
-@import 'mastodon/accounts';
-@import 'mastodon/components';
-@import 'mastodon/polls';
-@import 'mastodon/modal';
-@import 'mastodon/emoji_picker';
-@import 'mastodon/about';
-@import 'mastodon/tables';
-@import 'mastodon/admin';
-@import 'mastodon/dashboard';
-@import 'mastodon/rtl';
-@import 'mastodon/accessibility';
-@import 'mastodon/rich_text';
+@use 'mastodon/reset';
+@use 'mastodon/basics';
+@use 'mastodon/branding';
+@use 'mastodon/containers';
+@use 'mastodon/lists';
+@use 'mastodon/widgets';
+@use 'mastodon/forms';
+@use 'mastodon/accounts';
+@use 'mastodon/components';
+@use 'mastodon/polls';
+@use 'mastodon/modal';
+@use 'mastodon/emoji_picker';
+@use 'mastodon/about';
+@use 'mastodon/tables';
+@use 'mastodon/admin';
+@use 'mastodon/dashboard';
+@use 'mastodon/rtl';
+@use 'mastodon/accessibility';
+@use 'mastodon/rich_text';
 
-@import 'mascot';
+@use 'mascot';
 
 @media screen and (min-width: 1025px) {
   .layout-multiple-columns .column,
