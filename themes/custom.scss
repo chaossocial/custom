@@ -18,7 +18,7 @@ $classic-highlight-color: #1c89d1;    // Chaotic Blue
 
 // fixes for 4.2.0 part 1 
 $ui-button-background-color: $classic-highlight-color;
-$ui-button-focus-background-color: darken($classic-highlight-color, 4%) !default;
+$ui-button-focus-background-color: color.adjust($classic-highlight-color, $lightness: -4%) !default;
 // end fixes
 
 // Variables for defaults in UI
@@ -31,7 +31,7 @@ $error-value-color: $error-red !default;
 
 // Tell UI to use selected colors
 $ui-base-color: $classic-base-color !default;                  // Darkest
-$ui-base-lighter-color: lighten($ui-base-color, 26%) !default; // Lighter darkest
+$ui-base-lighter-color: color.adjust($ui-base-color, $lightness: 26%) !default; // Lighter darkest
 $ui-primary-color: $classic-primary-color !default;            // Lighter
 $ui-secondary-color: $classic-secondary-color !default;        // Lightest
 $ui-highlight-color: $classic-highlight-color !default;
@@ -41,7 +41,7 @@ $primary-text-color: $white !default;
 $darker-text-color: $ui-primary-color !default;
 $dark-text-color: $ui-base-lighter-color !default;
 $secondary-text-color: $ui-secondary-color !default;
-$highlight-text-color: lighten($ui-highlight-color, 8%) !default;
+$highlight-text-color: color.adjust($ui-highlight-color, $lightness: 8%) !default;
 $action-button-color: $ui-base-lighter-color !default;
 $passive-text-color: $gold-star !default;
 $active-passive-text-color: $success-green !default;
